@@ -13,7 +13,7 @@
 
 output "instance_publicip" {
   description = "EC2 Instance Public IP"
-  #value       = aws_instance.myec2vm[*].public_ip
+  #value       = aws_instance.myec2vm[*].public_ip # It doesn't work because its output list
   value = toset([for instance in aws_instance.myec2vm : instance.public_ip])
 }
 
@@ -21,11 +21,11 @@ output "instance_publicip" {
 
 output "instance_publicdns" {
   description = "EC2 Instance Public DNS"
-  #value       = aws_instance.myec2vm[*].public_dns
+  #value       = aws_instance.myec2vm[*].public_dns # It doesn't work because its output list 
   value = toset([for instance in aws_instance.myec2vm : instance.public_dns])
 }
 
-# EC2 Instance Public DNS with TOSMAP
+# EC2 Instance Public DNS with TOMAP
 
 output "instance_publicdns2_map" {
   description = "EC2 Instance Public DNS"
