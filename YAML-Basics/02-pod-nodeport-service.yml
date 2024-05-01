@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata: # Dictionary
+  name: mayapp-pod-nodeport-service
+  labels: # Dictionary
+    app: myapp  # Optional labels
+
+spec: 
+  type: NodePort  # Loadbalancer,
+  selector:
+      app: myapp
+      ports:
+        - name: http
+          port: 80
+          targetPort: 80
+          nodePort: 31231
+   

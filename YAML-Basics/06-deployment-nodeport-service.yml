@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: replicaset-nodeport-service
+spec: 
+  type: NodePort # List
+  selector:
+    app: myapp2
+  port:
+    - name: myapp-container
+      ports:
+      targetPort: 80
+      nodePort: 31232
