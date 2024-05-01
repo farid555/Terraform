@@ -1,8 +1,4 @@
-#  ls -lrta
-#  terraform init
-
-
-
+# Resource Block
 # Terraform Block
 terraform {
   required_version = "~> 1.8.0"
@@ -12,12 +8,10 @@ terraform {
       version = "~> 5.0"
     }
   }
-
 }
-
 #Provider Block
 provider "aws" { #Name will be same Local Names aws
-  region = "us-east-1" 
+  region = "us-east-1"
 }
 
 

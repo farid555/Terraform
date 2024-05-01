@@ -1,1 +1,0 @@
-VPC created on Fri Apr 19 22:45:22 EEST 2024 and VPC ID: vpc-093ce6db50c200058

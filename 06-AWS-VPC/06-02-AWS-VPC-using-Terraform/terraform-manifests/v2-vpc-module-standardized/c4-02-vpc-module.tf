@@ -6,7 +6,7 @@ module "vpc" {
   version = "5.4.0"  
 
   # VPC Basic Details
-  name = "${local.name}-${var.vpc_name}"
+  name = "${local.name}-${var.vpc_name}" # VPC's name HR-stag-myvpc
   cidr = var.vpc_cidr_block
   azs             = var.vpc_availability_zones
   public_subnets  = var.vpc_public_subnets
