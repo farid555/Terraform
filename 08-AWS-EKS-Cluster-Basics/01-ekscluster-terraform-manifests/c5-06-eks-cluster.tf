@@ -5,14 +5,14 @@ resource "aws_eks_cluster" "eks_cluster" {
   version = var.cluster_version
 
   vpc_config {
-    subnet_ids = module.vpc.public_subnets
-    endpoint_private_access = var.cluster_endpoint_private_access
-    endpoint_public_access  = var.cluster_endpoint_public_access
-    public_access_cidrs     = var.cluster_endpoint_public_access_cidrs    
+    subnet_ids = module.vpc.public_subnets // This EKS cluster created in Public subnet(EKS Elastic network Interface)
+    endpoint_private_access = var.cluster_endpoint_private_access // Default is False ...cluster_endpoint_private_access = false
+    endpoint_public_access  = var.cluster_endpoint_public_access // Default is True ...cluster_endpoint_public_access = true
+    public_access_cidrs     = var.cluster_endpoint_public_access_cidrs   // eks.auto.tfvars 
   }
 
   kubernetes_network_config {
-    service_ipv4_cidr = var.cluster_service_ipv4_cidr
+    service_ipv4_cidr = var.cluster_service_ipv4_cidr  //  eks.auto.tfvars
   }
   
   # Enable EKS Cluster Control Plane Logging
