@@ -9,7 +9,7 @@ kubectl get nodes -o wide
 # Verify Services
 kubectl get svc
 
-# Connect to EKS Worker Nodes using Bastion Host
+--> Connect to EKS Worker Nodes using Bastion Host
 
 # Connect to Bastion EC2 Instance
 ssh -i private-key/eks-terraform-key.pem ec2-user@<Bastion-EC2-Instance-Public-IP>
