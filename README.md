@@ -56,13 +56,11 @@ kubectl get all -n kube-node-lease
 kubectl get all -n kube-public
 
 # Verify Resources in default namespace
-kubectl get all -n default
-Observation: 
+kubectl get all -n default Observation: 
 1. Kubernetes Service: Cluster IP Service for Kubernetes Endpoint
 
 # Verify Resources in kube-system namespace
-kubectl get all -n kube-system
-Observation: 
+kubectl get all -n kube-system Observation: 
 1. Kubernetes Deployment: coredns
 2. Kubernetes DaemonSet: aws-node, kube-proxy
 3. Kubernetes Service: kube-dns
@@ -71,19 +69,20 @@ Observation:
 
 # Verify pods in kube-system namespace
 # Verify System pods in kube-system namespace
-kubectl get pods # Nothing in default namespace
+
+kubectl get pods 
+
+# Nothing in default namespace
 kubectl get pods -n kube-system
 kubectl get pods -n kube-system -o wide
 
 # Verify Daemon Sets in kube-system namespace
-kubectl get ds -n kube-system
-Observation: The below two daemonsets will be running
+kubectl get ds -n kube-system Observation: The below two daemonsets will be running
 1. aws-node
 2. kube-proxy
 
 # Describe aws-node Daemon Set
-kubectl describe ds aws-node -n kube-system
-Observation: 
+kubectl describe ds aws-node -n kube-system Observation: 
 1. Reference "Image" value it will be the ECR Registry URL 
 
 # Describe kube-proxy Daemon Set
