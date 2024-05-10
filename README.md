@@ -23,19 +23,21 @@ kubectl get svc
 
 # Connect to Bastion EC2 Instance
 
-##### ec2-user@<Bastion-EC2-Instance-Public-IP>
+```bash
+ec2-user@<Bastion-EC2-Instance-Public-IP>
 cd /tmp
+```
 
 ```bash
 ssh -i private-key/eks-terraform-key.pem 
 ```
 
 # Connect to Kubernetes Worker Nodes - Public Node Group
-
-##### ec2-user@<Public-NodeGroup-EC2Instance-PublicIP> 
+```bash
+ec2-user@<Public-NodeGroup-EC2Instance-PublicIP> 
 [or]
-##### ec2-user@<Public-NodeGroup-EC2Instance-PrivateIP>
-
+ec2-user@<Public-NodeGroup-EC2Instance-PrivateIP>
+```
 ```bash
 ssh -i private-key/eks-terraform-key.pem 
 ```
@@ -55,12 +57,15 @@ cat /etc/kubernetes/kubelet/kubelet-config.json
 # Verify kubelet kubeconfig
 cat /var/lib/kubelet/kubeconfig
 
---> chmod 400 /Users/mohammad/Desktop/terraform/08-AWS-EKS-Cluster-Basics/01-ekscluster-terraform-manifests/private-key
-
---> ssh -i /Users/mohammad/Desktop/terraform/08-AWS-EKS-Cluster-Basics/01-ekscluster-terraform-manifests/private-key/terraform_newKey.pem ec2-user@52.206.112.132
-
---> ssh -i terraform_newKey.pem ec2-user@54.87.140.55 | bastionHost to pod instance
-###
+```bash
+chmod 400 /Users/mohammad/Desktop/terraform/08-AWS-EKS-Cluster-Basics/01-ekscluster-terraform-manifests/private-key
+```
+```bash 
+ssh -i /Users/mohammad/Desktop/terraform/08-AWS-EKS-Cluster-Basics/01-ekscluster-terraform-manifests/private-key/terraform_newKey.pem ec2-user@52.206.112.132
+```
+```Bash
+ssh -i terraform_newKey.pem ec2-user@54.87.140.55 | bastionHost to pod instance
+```
 
 # Verify Namespaces
 kubectl get namespaces
