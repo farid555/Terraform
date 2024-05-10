@@ -1,24 +1,45 @@
 # Configure kubeconfig for kubectl
-aws eks --region <region-code> update-kubeconfig --name <cluster_name>
-aws eks --region us-east-1 update-kubeconfig --name hr-stag-eksdemo1
+
+##### aws eks --region <region-code> update-kubeconfig --name <cluster_name>
+
+```bash
+aws eks --region us-east-1 update-kubeconfig --name SAP-dev-eksdemo1
+```
 
 # List Worker Nodes
-kubectl get nodes
+
+##### kubectl get nodes
+
+```bash
 kubectl get nodes -o wide
+```
 
 # Verify Services
+```bash
 kubectl get svc
+```
 
---> Connect to EKS Worker Nodes using Bastion Host
+##### Connect to EKS Worker Nodes using Bastion Host
 
 # Connect to Bastion EC2 Instance
-ssh -i private-key/eks-terraform-key.pem ec2-user@<Bastion-EC2-Instance-Public-IP>
+
+ec2-user@<Bastion-EC2-Instance-Public-IP>
+
+```bash
+ssh -i private-key/eks-terraform-key.pem 
+```
 cd /tmp
 
+
 # Connect to Kubernetes Worker Nodes - Public Node Group
-ssh -i private-key/eks-terraform-key.pem ec2-user@<Public-NodeGroup-EC2Instance-PublicIP> 
+
+ec2-user@<Public-NodeGroup-EC2Instance-PublicIP> 
 [or]
 ec2-user@<Public-NodeGroup-EC2Instance-PrivateIP>
+
+```bash
+ssh -i private-key/eks-terraform-key.pem 
+```
 
 # Connect to Kubernetes Worker Nodes - Private Node Group from Bastion Host
 ssh -i eks-terraform-key.pem ec2-user@<Private-NodeGroup-EC2Instance-PrivateIP>
