@@ -34,5 +34,12 @@ variable "cluster_endpoint_public_access_cidrs" {
   default     = ["0.0.0.0/0"]
 }
 
+variable "work_ip" {
+  description = "The work IP address to allow access (in CIDR notation)"
+  type        = string
+  default     = "80.221.182.118/32"  # Replace with your actual IP address
+}
+
+
 # EKS Node Group Variables
 ## Placeholder space you can create if required
