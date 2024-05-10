@@ -23,27 +23,28 @@ kubectl get svc
 
 # Connect to Bastion EC2 Instance
 
-ec2-user@<Bastion-EC2-Instance-Public-IP>
+##### ec2-user@<Bastion-EC2-Instance-Public-IP>
+cd /tmp
 
 ```bash
 ssh -i private-key/eks-terraform-key.pem 
 ```
-cd /tmp
-
 
 # Connect to Kubernetes Worker Nodes - Public Node Group
 
-ec2-user@<Public-NodeGroup-EC2Instance-PublicIP> 
+##### ec2-user@<Public-NodeGroup-EC2Instance-PublicIP> 
 [or]
-ec2-user@<Public-NodeGroup-EC2Instance-PrivateIP>
+##### ec2-user@<Public-NodeGroup-EC2Instance-PrivateIP>
 
 ```bash
 ssh -i private-key/eks-terraform-key.pem 
 ```
 
 # Connect to Kubernetes Worker Nodes - Private Node Group from Bastion Host
-ssh -i eks-terraform-key.pem ec2-user@<Private-NodeGroup-EC2Instance-PrivateIP>
 
+```bash
+ssh -i eks-terraform-key.pem ec2-user@<Private-NodeGroup-EC2Instance-PrivateIP>
+```
 ##### REPEAT BELOW STEPS ON BOTH PUBLIC AND PRIVATE NODE GROUPS ####
 # Verify if kubelet and kube-proxy running
 ps -ef | grep kube
